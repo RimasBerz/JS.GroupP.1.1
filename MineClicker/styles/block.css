@@ -1,0 +1,50 @@
+
+
+.container {
+    position: absolute;
+    top:  calc( 65vh - 50px );
+    left: calc( 50vw - 50px );
+
+    perspective: 500px;
+    width: 100px;
+    height: 100px;
+}
+  
+.cube {
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+  
+.cube span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    
+    border: solid black 1px;
+}
+
+.cube .front {transform: translateZ(-50px) rotateY(0deg) translateZ(50px);}
+.cube .back {transform: translateZ(-50px) rotateX(180deg) translateZ(50px);}
+.cube .top {transform: translateZ(-50px) rotateX(90deg) translateZ(50px);}
+.cube .bottom {transform: translateZ(-50px) rotateX(-90deg) translateZ(50px);}
+.cube .left {transform: translateZ(-50px) rotateY(-90deg) translateZ(50px);}
+.cube .right {transform: translateZ(-50px) rotateY(90deg) translateZ(50px);}
+
+
+.cube#c1{transform: translate(-100px, -100px); }
+.cube#c2{transform: translate(0px, -100px); }
+.cube#c3{transform: translate(100px, -100px);}
+.cube#c4{transform: translate(-100px, 0px);}
+.cube#c5{transform: translate(0px, 0px);}
+.cube#c6{transform: translate(100px, -0px);}
+.cube#c7{transform: translate(-100px, 100px);}
+.cube#c8{transform: translate(0px, 100px);}
+.cube#c9{transform: translate(100px, 100px);}
