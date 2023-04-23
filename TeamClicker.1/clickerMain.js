@@ -6,7 +6,8 @@ const continueButton = document.getElementById("continueGame");
 const muteMusicButton = document.getElementById("muteMusic");
 const SaveProgressButton = document.getElementById("SaveProgress");
 const mainDiv = document.querySelector(".maindiv");
-const lessonButton = document.getElementById("lessonbutton")
+const lessonButton = document.getElementById("lessonbutton");
+/*const SellAllButton = document.getElementById("SellAll")*/
 const audio = new Audio("sounds/audiosaundtreck1.mp3");
 audio.volume = 0.3;
 const ST1 = document.createElement("img");
@@ -32,16 +33,19 @@ myButton.addEventListener("click", function () {
         muteMusicButton.removeAttribute("disabled");
         SaveProgressButton.removeAttribute("disabled");
         lessonButton.removeAttribute("disabled");
+     /*   SellAllButton.removeAttribute("disabled");*/
         newGameButton.style.transition = "opacity 0.5s ease-in-out";
         SaveProgressButton.style.transition = "opacity 0.5s ease-in-out";
         continueButton.style.transition = "opacity 0.5s ease-in-out";
         muteMusicButton.style.transition = "opacity 0.5s ease-in-out";
         newGameButton.style.transition = "opacity 0.5s ease-in-out";
+/*        SellAllButton.style.transition = "opacity 0.7s ease-in-out"; */
         newGameButton.style.opacity = 1;
         continueButton.style.opacity = 1;
         muteMusicButton.style.opacity = 1;
         SaveProgressButton.style.opacity = 1;
         lessonButton.style.opacity = 1;
+    /*    SellAllButton.style.opacity = 1;*/
         ST1.style.opacity = 1;
         ST1.style.pointerEvents = "auto";
         ST1.classList.add("animated");
@@ -67,6 +71,7 @@ function startGame() {
 setTimeout(function () {
     newGameButton.style.display = "block";
     continueButton.style.display = "block";
+    SaveProgressButton.style.display = "block";
     muteMusicButton.style.display = "block";
 }, 2000);
 
