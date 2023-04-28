@@ -21,4 +21,14 @@
 #inventory .slot{
     width: 6vh;
     height: 6vh;
+
+    color: white;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
 }

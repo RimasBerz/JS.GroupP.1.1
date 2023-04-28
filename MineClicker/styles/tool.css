@@ -1,0 +1,99 @@
+
+#tools{
+    position: absolute;
+
+    width: 40vw;
+    height: 30vw;
+
+    right: -32.4%;
+    top: calc( 50vh - 15vw );
+
+    transition: 1s;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: solid 3px black;
+    border-right: 0px;
+    border-radius: 5px 0px 0px 5px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#tools #openclose{
+    width: 7%;
+    height: 25%;
+
+    position: absolute;
+    left: -7%;
+    top: 37.5%;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+
+    border: solid 3px black;
+    border-radius: 5px 0px 0px 5px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#tools .tool{
+    width: 100%;
+    height: 23%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#tools .tool div{
+    height: 95%;
+    width: 17%;
+    
+    background-color: rgba(255, 255, 255, 0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+
+    box-sizing: border-box;
+    border: 3px white;
+    border-radius: 5px;
+}
+
+#tools .tool span{
+    height: 95%;
+    width: 25%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    font-size: 80%;
+    font-weight: bold;
+    color: #232;
+
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+
+    user-select: none;
+}
+
+#tools .tool .cost{
+    padding-top: 5px;
+
+    color: #000;
+    font-size: 100%;
+    font-weight: lighter;
+}

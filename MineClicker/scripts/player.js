@@ -1,10 +1,14 @@
 "use strict";
 
 
-function Player() 
+class Player
 {
-    // Inventory
-    this.inventory = new Inventory();
-    
-    
+    constructor()
+    {
+        // Inventory
+        this.inventory = new Inventory();
+
+        this.tools = [];
+        this.currentTool = "pickaxe";
+    }
 }
