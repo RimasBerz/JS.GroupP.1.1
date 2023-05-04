@@ -108,9 +108,9 @@ const blocks =
 const worlds =
 [
     //  new World(difficulty, blocks_in_this_world, count_walls, background);
-    new World(0, [0, 1, 2, 3, 4, 5], 0, "Defoult_world.jpg"),
-    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 1 , "Cave_world.jpeg"),
-    new World(2, [13, 14, 15, 16, 17], 1, "nether_background.webp")
+    new World(0, [0, 1, 2, 3, 4, 5], 10, "Defoult_world.jpg"),
+    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 10 , "Cave_world.jpeg"),
+    new World(2, [13, 14, 15, 16, 17], 10, "nether_background.webp")
 ];
 
 
