@@ -94,7 +94,13 @@ const blocks =
     9 : new Block("Redstone Ore", 3, "pickaxe", 20, "redstone_ore.png", "redstone_ore.png", "redstone_ore.png", "redstone_ore.png"),
     10: new Block("Lapis Lazuli Ore", 3, "pickaxe", 20, "lapis_ore.png", "lapis_ore.png", "lapis_ore.png", "lapis_ore.png"),
     11: new Block("Diamond Ore", 6, "pickaxe", 25, "diamond_ore.png", "diamond_ore.png", "diamond_ore.png", "diamond_ore.png"),
-    12: new Block("Obsidian", 3, "pickaxe", 32, "obsidian.png", "obsidian.png", "obsidian.png", "obsidian.png")
+    12: new Block("Obsidian", 7, "pickaxe", 32, "obsidian.png", "obsidian.png", "obsidian.png", "obsidian.png"),
+    13: new Block("Netherrack", 3, "pickaxe", 17, "netherrack.png", "netherrack.png", "netherrack.png", "netherrack.png"),
+    14: new Block("Soul Sand", 4, "shovel", 16, "soul_sand.png", "soul_sand.png", "soul_sand.png", "soul_sand.png"),
+    15: new Block("Magma Block", 6, "pickaxe", 20, "magma.png", "magma.png", "magma.png", "magma.png"),
+    16: new Block("Nether quartz ore", 8, "pickaxe", 18, "nether_quartz_ore.png", "nether_quartz_ore.png", "nether_quartz_ore.png", "nether_quartz_ore.png"),
+    17: new Block("Nether bricks", 4, "pickaxe", 20, "nether_bricks.png", "nether_bricks.png", "nether_bricks.png", "nether_bricks.png")
+
 };
 
 
@@ -102,8 +108,9 @@ const blocks =
 const worlds =
 [
     //  new World(difficulty, blocks_in_this_world, count_walls, background);
-    new World(0, [0, 1, 2, 3, 4, 5], 10, "Defoult_world.jpg"),
-    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 10 , "Cave_world.jpeg")
+    new World(0, [0, 1, 2, 3, 4, 5], 0, "Defoult_world.jpg"),
+    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 1 , "Cave_world.jpeg"),
+    new World(2, [13, 14, 15, 16, 17], 1, "nether_background.webp")
 ];
 
 
