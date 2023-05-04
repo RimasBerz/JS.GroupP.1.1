@@ -6,62 +6,89 @@
 // При count = 0, надпись количества прелметов - пустая
 class Slot
 {
-    constructor()
+    constructor(html)
     {
         this.id = -1; // id - блока хранящегося в слоте
         this.count = 0; // count - их количество в соте
+        this.html = html;
+    }
+
+    Clear()
+    {
+        this.id = -1;
+        this.count = 0;
     }
 }
 
 // Инвентарь - массив из объектов типа Слот -> (id, count)
 class Inventory
 {
-    constructor()
+    constructor(slots)
     {
-        this.count = 9; // количество слотов
+        this.count = slots.length; // количество слотов
         
         this.slots = []; // Массив слотов
-        for (let i = 0; i < this.count; i++) 
+        for (let i = 0; i < this.count; i++)
         {
-            this.slots.push(new Slot());
+            this.slots.push(new Slot(slots[i]));
         }
     }
     
     // Добавить предмет в инвентарь
     Add(block_id)
     {
-        for(let i = 0; i < this.slots.length; i++)
+
+        for (let i = 0; i < this.slots.length; i++)
         {
-            if (this.slots[i].id == block_id && this.slots[i].count < 64)
+            let slot = this.slots[i];
+            if (slot.id == block_id && slot.count < 64)
             {
-                this.slots[i].count++;
-                this.SetSlotDisplay(i);
+                slot.count++;
+                this.SetSlotDisplay();
                 return;
             }
         }
-
-        for(let i = 0; i < this.slots.length; i++)
+        
+        
+        for (let i = 0; i < this.slots.length; i++)
         {
-            if (this.slots[i].id == -1)
+            let slot = this.slots[i];
+            if (slot.id == -1)
             {
-                this.slots[i].id = block_id;
-                this.slots[i].count = 1;
-                this.SetSlotDisplay(i);
+                slot.id = block_id;
+                slot.count = 1;
+                this.SetSlotDisplay();
                 return;
             }
         }
     }
 
-    SetSlotDisplay(slot_id)
+    SetSlotDisplay()
     {
-        slots[slot_id].style.backgroundImage = GetUrlForStyle("icons/", blocks[this.slots[slot_id].id].icon_name);
-        slots[slot_id].innerHTML = this.slots[slot_id].count;
-    }
-
-    // Продать все предметы в инвентаре
-    SellAll()
-    {
-
-        return 0;
+        this.slots.forEach(slot => {
+            if (slot.id == -1)
+            {
+                slot.html.style.backgroundImage = "none";
+                slot.html.innerHTML = "";
+            }
+            else
+            {
+                slot.html.style.backgroundImage = GetUrlForStyle("icons/", blocks[slot.id].icon_name);
+                slot.html.innerHTML = slot.count;
+            }
+        });
     }
 }
+
+function ParseInventory(inventory)
+{
+    let i = new Inventory(document.getElementById("inventory").children);
+    
+    for (let j = 0; j < i.count; j++)
+    {
+        i.slots[j].id = inventory.slots[j].id;
+        i.slots[j].count = inventory.slots[j].count;
+    }
+    return i;
+}
+

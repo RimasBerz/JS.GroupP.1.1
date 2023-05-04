@@ -2,11 +2,11 @@
 #tools{
     position: absolute;
 
-    width: 40vw;
-    height: 30vw;
+    width: 53vh;
+    height: 40vh;
 
-    right: -32.4%;
-    top: calc( 50vh - 15vw );
+    right: -42.5vh;
+    top: calc(50vh - 20vh);
 
     transition: 1s;
 
@@ -33,14 +33,22 @@
 
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
+    transition: 0.5s;
 
+    box-sizing: border-box;
     border: solid 3px black;
     border-radius: 5px 0px 0px 5px;
 
-    font-size: 18px;
+    font-size: 100%;
     font-weight: bold;
-}
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#tools #openclose:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}   
 #tools .tool{
     width: 100%;
     height: 23%;
@@ -70,16 +78,18 @@
 #tools .tool span{
     height: 95%;
     width: 25%;
+
+    user-select: none;
     
-    display: flex;
-    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;   
     justify-content: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
 
     font-size: 80%;
-    font-weight: bold;
-    color: #232;
+    font-weight: lighter;
+    color: #000;
 
     box-sizing: border-box;
     border: 2px solid black;
@@ -90,10 +100,30 @@
     user-select: none;
 }
 
+
+#tools .tool .name {
+    width: 100%;
+    text-align: center;
+}
+#tools .tool p{
+    display: inline-block;
+}
 #tools .tool .cost{
     padding-top: 5px;
 
-    color: #000;
+    color: #090;
     font-size: 100%;
-    font-weight: lighter;
+    font-weight: bold;
+}
+
+#tools .tool .value{
+    padding-top: 5px;
+    padding-left: 7px;
+
+    color: darkslategray;
+    font-size: 100%;
+    font-weight: bold;
+}
+#tools .tool .value::before{
+    content: "x";
 }

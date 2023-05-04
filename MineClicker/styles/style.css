@@ -1,4 +1,4 @@
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; user-select: none; cursor: url('../images/cursor.png'), auto; }
 html, body {width: 100%; height: 100%; overflow: hidden;}
 
 body{
@@ -7,13 +7,31 @@ body{
     background-size: cover;
 }
 
-.emeralds {
-    width: 120px;
-    height: 40px;
+.topbar{
+    user-select: none;
+    width: 40vw;
 
     position: absolute;
     top: 5px;
-    left: calc(50vw - 60px);
+    left: 30vw;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.topbar .center{
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.topbar .emeralds {
+    width: 100%;
+    height: 8vh;
 
     background-color: rgba(255,255,255, 0.3);
     backdrop-filter: blur(10px);
@@ -28,3 +46,62 @@ body{
     font-weight: bold;
     color: limegreen;
 }
+
+.topbar #nextlevel{
+    width: 100%;
+    height: 8vh;
+    margin-top: 10px;
+
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: lightgreen;
+    transition: 1s;
+
+    color: black;
+    font-size: 90%;
+    font-weight: bold;
+
+    display: none;
+}
+
+.topbar #nextlevel:hover{
+    background-color: greenyellow;
+    font-size: 100%;
+}
+.topbar #menu{
+    width: 20%;
+    height: 8vh;
+
+    background-image: url("../images/menu_icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    filter: drop-shadow(0px 0px 2px white);
+}
+.topbar #menu:hover{
+    filter: invert(1) drop-shadow(0px 0px 2px black);
+}
+.topbar #autobutton
+{
+    width: 20%;
+    height: 8vh;
+
+    background-color: #d55;
+    border: 2px solid black;
+    border-radius: 5px;
+
+    font-size: 90%;
+    text-align: center;
+    font-weight: bold;
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topbar #autobutton:hover{
+    border-width: 3px;
+    font-size: 95%;
+}
+

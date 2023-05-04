@@ -28,9 +28,19 @@
     background-size: contain;
     image-rendering: pixelated;
 }
+.cube>span
+{
+    display: flex;
+}
 .cube .break{ border: solid black 1px; opacity: 0.7;}
 
-.cube .front {transform: translateZ(-50px) rotateY(0deg) translateZ(50px);}
+.cube .front {
+    transform: translateZ(-50px) rotateY(0deg) translateZ(50px);
+    font-size: 100%;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+}
 .cube .back {transform: translateZ(-50px) rotateX(180deg) translateZ(50px);}
 .cube .top {transform: translateZ(-50px) rotateX(90deg) translateZ(50px);}
 .cube .bottom {transform: translateZ(-50px) rotateX(-90deg) translateZ(50px);}

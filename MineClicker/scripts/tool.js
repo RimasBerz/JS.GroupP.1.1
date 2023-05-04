@@ -13,6 +13,43 @@ class TemplateTool
     }
 }
 
+class Parameter
+{
+    constructor(start_value, start_cost, k_value, k_cost)
+    {
+        this.value = start_value;
+        this.cost = start_cost;
+        this.k_value = k_value;
+        this.k_cost = k_cost;
+
+        this.upgrade;
+    }
+
+    Upgrade()
+    {
+        player.emeralds -= this.cost;
+
+        this.value *= this.k_value;
+        this.cost *= this.k_cost;
+        
+        if (this.upgrade != undefined)
+        {
+            this.upgrade(); 
+        }
+    }
+}
+
+function ParseParameter(parameter)
+{
+    let p = new Parameter(parameter.start_value, parameter.start_cost, parameter.k_value, parameter.k_cost);
+    p.value = parameter.value;
+    p.cost = parameter.cost;
+    return p;
+}
+
+
+
+
 
 class Tool
 {
@@ -25,6 +62,8 @@ class Tool
         this.image_level = image_level;
         this.htmlElement = htmlElement;
 
+        this.update_timer();
+
         this.htmlElement.getElementsByClassName("toolimage")[0].onclick = () => { Select(this); };
 
         let upgrades = this.htmlElement.getElementsByTagName("span");
@@ -32,12 +71,66 @@ class Tool
         {
             upgrades[i].onclick = ()=>{ this.Upgrade(upgrades[i].className); };
         }
+        this.multiplier.upgrade = () => { this.image_level++; };
     }
 
     Upgrade(param)
     {
-        console.log(this.tool_id + " " + param);
-        
+        let parameter;
+        switch (param)
+        {
+            case "multiplier":
+                parameter = this.multiplier;
+                break;
+            case "additionally":
+                parameter = this.additionally;
+                break;
+            case "cooldown":
+                parameter = this.cooldown;
+                clearTimeout(this.timerId);
+                this.update_timer();
+                break;
+        }
+
+        if (player.emeralds < parameter.cost) return;
+        parameter.Upgrade();
+        Update();
+    }
+
+    update_timer()
+    {
+        this.timer_id = setInterval(this.auto, this.cooldown.value * 1000, this);
+    }
+
+    auto(tool)
+    {
+        if (!player.auto) return;
+
+        let cube;
+        for(let i = 0; i < cubes.length; i++)
+        {
+            cube = cubes[i];
+            if (cube.strength > 0)
+            {
+                if (blocks[cube.block_id].block_type == tool.tool_id)
+                {
+                    cube.Damage(tool.additionally.value);
+                    return;
+                }
+            }   
+        }
     }
 }
+
+function ParseTool(tool, tool_block)
+{
+    let t = new Tool(tool.tool_id, 
+        ParseParameter(tool.multiplier), 
+        ParseParameter(tool.additionally), 
+        ParseParameter(tool.cooldown), 
+        tool.image_level, 
+        tool_block);
+    return t;
+}
+
 

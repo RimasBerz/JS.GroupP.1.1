@@ -6,12 +6,29 @@
         <link rel="stylesheet" href="styles/block.css">
         <link rel="stylesheet" href="styles/inventory.css">
         <link rel="stylesheet" href="styles/tool.css">
+        <link rel="stylesheet" href="styles/menu.css">
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
 
+        <div id="maindiv" style="display: flex;">
+            
+            <div class="menu">
+                <button id="close" style="display: none;">Close</button>
+                <button id="newGame">New Game</button>
+                <button id="continueGame">Continue</button>
+                <button id="SaveProgress">Save progress</button>
+                <button id="manual">Manual</button>
+                <button id="muteMusic">Mute Music</button>
+            </div>
+        </div>
+        
+        <div class="insidediv">
+            <button id="lessonbutton">Кликай по блокам(наведись на меня)!</button>
+        </div>
+
         <div class="container">
-            <div id="c1" class="cube">
+            <div id="c1" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -19,7 +36,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c3" class="cube">
+            <div id="c3" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -27,7 +44,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c7" class="cube">
+            <div id="c7" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -35,7 +52,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c9" class="cube">
+            <div id="c9" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -45,7 +62,7 @@
             </div>
 
             
-            <div id="c2" class="cube">
+            <div id="c2" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -53,7 +70,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c4" class="cube">
+            <div id="c4" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -61,7 +78,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c6" class="cube">
+            <div id="c6" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -69,7 +86,7 @@
                 <span class="left"><span class="break"></span></span>
                 <span class="right"><span class="break"></span></span>
             </div>
-            <div id="c8" class="cube">
+            <div id="c8" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -79,7 +96,7 @@
             </div>
 
 
-            <div id="c5" class="cube">
+            <div id="c5" class="cube" style="display: none;">
                 <span class="front"><span class="break"></span></span>
                 <span class="back"><span class="break"></span></span>
                 <span class="top"><span class="break"></span></span>
@@ -89,56 +106,116 @@
             </div>
         </div>
 
-        <div id="inventory" style="background-image: url('images/HotBar.png')">
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
-            <div class="slot"></div>
+        <div class="bottombar">
+            <div id="inventory">
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+            <div id="sellbutton"><p>Sell</p></div>
         </div>
+        
 
         
         <div id="tools">
-            <button id="openclose"><</button>
+            <div id="openclose"><</div>
 
             <div class="tool"> 
                 <div class="toolimage"></div>
-                <span class="multiplier"> <p>Multiplier</p><p class="cost">123</p> </span> 
-                <span class="additionally"> <p>Additionally</p><p class="cost">123</p> </span>
-                <span class="cooldown"> <p>Cooldown</p><p class="cost">123</p> </span>
+                <span class="multiplier"> 
+                    <p class="name">Multiplier</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span> 
+                <span class="additionally"> 
+                    <p class="name">Additionally</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
+                <span class="cooldown"> 
+                    <p class="name">Cooldown</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
             </div>
 
             <div class="tool"> 
                 <div class="toolimage"></div>
-                <span class="multiplier"> Multiplier </span> 
-                <span class="additionally"> Additionally </span>
-                <span class="cooldown"> Cooldown </span>
+                <span class="multiplier"> 
+                    <p class="name">Multiplier</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span> 
+                <span class="additionally"> 
+                    <p class="name">Additionally</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
+                <span class="cooldown"> 
+                    <p class="name">Cooldown</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
             </div>
 
             <div class="tool"> 
                 <div class="toolimage"></div>
-                <span class="multiplier"> Multiplier </span> 
-                <span class="additionally"> Additionally </span>
-                <span class="cooldown"> Cooldown </span>
+                <span class="multiplier"> 
+                    <p class="name">Multiplier</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span> 
+                <span class="additionally"> 
+                    <p class="name">Additionally</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
+                <span class="cooldown"> 
+                    <p class="name">Cooldown</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
             </div>
 
             <div class="tool"> 
                 <div class="toolimage"></div>
-                <span class="multiplier"> Multiplier </span> 
-                <span class="additionally"> Additionally </span>
-                <span class="cooldown"> Cooldown </span>
+                <span class="multiplier"> 
+                    <p class="name">Multiplier</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span> 
+                <span class="additionally"> 
+                    <p class="name">Additionally</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
+                <span class="cooldown"> 
+                    <p class="name">Cooldown</p>
+                    <p class="cost"></p>
+                    <p class="value"></p> 
+                </span>
             </div>
         </div>
 
-        
-        <div class="emeralds">
-            <img src="images/emerald.png" height="60%">
-            <p id="emerals">-</p>
-        </div>
+        <div class="topbar">
+            <div id="menu"></div>
+
+            <div class="center">
+                <div class="emeralds">
+                    <img src="images/emerald.png" height="60%">
+                    <p id="emeralds">-</p>
+                </div>
+                <button id="nextlevel">Next Level</button>
+            </div>
+
+            <div id="autobutton">auto</div>
+        </div>  
         
 
         <script src="scripts/cube.js"></script>
@@ -147,6 +224,7 @@
         <script src="scripts/world.js"></script>
         <script src="scripts/tool.js"></script>
         <script src="scripts/player.js"></script>
+        <script src="scripts/menu.js"></script>
         
         <script src="scripts/game_functions.js"></script>
         <script src="scripts/main.js"></script>
