@@ -98,6 +98,9 @@ function Select(tool)
 
     SelectedTool.style.borderStyle = "solid";
     SelectedTool.id = "selectedtool";
+
+    document.body.style.cursor = GetUrlForStyle("images/", tools[tool.tool_id].curcor_icon) + ", auto"
+
     player.currentTool = tool;
 }
 
@@ -145,7 +148,9 @@ function Update()
         }
     });
 
-    emeraldstext.innerHTML = player.emeralds;
+    let prefix_id = Math.floor(player.emeralds / 1000);
+    if (prefix_id + 1 > prefixes.length) prefix_id = prefixes.length - 1;
+    emeraldstext.innerHTML = player.emeralds + prefixes[prefix_id];
 
 
     let flag = true;

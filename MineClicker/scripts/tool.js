@@ -3,13 +3,15 @@
 
 class TemplateTool
 {
-    constructor(name, image_names, gif_name)
+    constructor(name, image_names, gif_name, curcor_icon)
     {
         this.name = name;
 
         this.image_names = image_names.flatMap(element => GetUrlForStyle("textures/tools/", element));
 
         this.gif_name = gif_name;
+
+        this.curcor_icon = curcor_icon;
     }
 }
 
@@ -114,7 +116,7 @@ class Tool
             {
                 if (blocks[cube.block_id].block_type == tool.tool_id)
                 {
-                    cube.Damage(tool.additionally.value);
+                    cube.DamageWithoutSound(tool.additionally.value);
                     return;
                 }
             }   

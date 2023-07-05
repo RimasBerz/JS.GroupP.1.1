@@ -54,12 +54,8 @@ class Cube
         }
     }
 
-    Damage(damage)
+    DamageWithoutSound(damage)
     {
-        let h = new Audio("./sounds/hit.mp3");
-        h.volume = 0.5;
-        h.play();
-
         this.strength -= damage;
         let state = Math.round((1 - this.strength / this.full_strength) * (destroy_images.length + 1))-1;
         
@@ -93,6 +89,15 @@ class Cube
                 child.children[0].style.backgroundImage = destroy_images[state];
             }
         }
+    }
+
+    Damage(damage)
+    {
+        let h = new Audio("./sounds/hit.mp3");
+        h.volume = 0.5;
+        h.play();
+
+        this.DamageWithoutSound(damage);
     }
 }
 

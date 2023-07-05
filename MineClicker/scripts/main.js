@@ -54,6 +54,15 @@ manual.onclick = function () {
 
 
 
+// Сокращение количества денег
+const prefixes = 
+[
+    "",   // Единицы
+    "K",  // Тысячи
+    "M",  // Миллионы
+    "B"   // Миллиарды
+]
+
 
 
 // Типы инструментов / блоков(инструменты которыми они ломаються) :
@@ -63,18 +72,18 @@ manual.onclick = function () {
 //      scissors - ножницы
 const tools =
 {
-    //          new TemplateTool(name, tool_id, image_names, gif_name)
+    //          new TemplateTool(name, tool_id, image_names, gif_name, curcor_icon)
     "pickaxe" : new TemplateTool("Pickaxe",
-        ["wood_pickaxe.png", "stone_pickaxe.png", "iron_pickaxe.png", "gold_pickaxe.png", "diamond_pickaxe.png"], "pickaxe.gif"),
+        ["wood_pickaxe.png", "stone_pickaxe.png", "iron_pickaxe.png", "gold_pickaxe.png", "diamond_pickaxe.png"], "pickaxe.gif", "pickaxe.png"),
     
     "axe" : new TemplateTool("Axe",
-        ["wood_axe.png", "stone_axe.png", "iron_axe.png", "gold_axe.png", "diamond_axe.png"], "axe.gif"),
+        ["wood_axe.png", "stone_axe.png", "iron_axe.png", "gold_axe.png", "diamond_axe.png"], "axe.gif", "axe.png"),
     
     "shovel" : new TemplateTool("Shovel",
-        ["wood_shovel.png", "stone_shovel.png", "iron_shovel.png", "gold_shovel.png", "diamond_shovel.png"], "shovel.gif"),
+        ["wood_shovel.png", "stone_shovel.png", "iron_shovel.png", "gold_shovel.png", "diamond_shovel.png"], "shovel.gif", "shovel.png"),
     
     "scissors" : new TemplateTool("Scissors",
-        ["scissors.png"], "scissors.gif")
+        ["scissors.png"], "scissors.gif", "scissors.png")
 };
 
 
@@ -108,9 +117,9 @@ const blocks =
 const worlds =
 [
     //  new World(difficulty, blocks_in_this_world, count_walls, background);
-    new World(0, [0, 1, 2, 3, 4, 5], 10, "Defoult_world.jpg"),
-    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 10 , "Cave_world.jpeg"),
-    new World(2, [13, 14, 15, 16, 17], 10, "nether_background.webp")
+    new World(0, [0, 1, 2, 3, 4, 5], 0, "Defoult_world.jpg"),
+    new World(1, [0, 4, 5, 6, 7, 8, 9, 10, 11, 12], 1 , "Cave_world.jpeg"),
+    new World(2, [13, 14, 15, 16, 17], 1, "nether_background.webp")
 ];
 
 
@@ -133,6 +142,7 @@ continueButton.onclick = () => {
         let cont = ContinueGame(); 
 
         player = cont[0];
+        Auto(); Auto();
         
         if (cont.length > 1) Start(cont[1]);
         else Start();
