@@ -127,20 +127,20 @@ function Update()
                 case "multiplier":
                     if (tool.multiplier.cost > player.emeralds) cost.style.color = "#622";
                     else cost.style.color = "#262";
-                    cost.innerHTML = tool.multiplier.cost;
-                    value.innerHTML = tool.multiplier.value;
+                    cost.innerHTML = GetWithPrefix(tool.multiplier.cost);
+                    value.innerHTML = GetWithPrefix(tool.multiplier.value);
                     break;
                 case "additionally":
                     if (tool.additionally.cost > player.emeralds) cost.style.color = "#622";
                     else cost.style.color = "#262";
-                    cost.innerHTML = tool.additionally.cost;
-                    value.innerHTML = tool.additionally.value;
+                    cost.innerHTML = GetWithPrefix(tool.additionally.cost);
+                    value.innerHTML = GetWithPrefix(tool.additionally.value);
                     break;
                 case "cooldown":
                     if (tool.cooldown.cost > player.emeralds) cost.style.color = "#622";
                     else cost.style.color = "#262";
-                    cost.innerHTML = tool.cooldown.cost;
-                    value.innerHTML = tool.cooldown.value;
+                    cost.innerHTML = GetWithPrefix(tool.cooldown.cost);
+                    value.innerHTML = GetWithPrefix(tool.cooldown.value);
                     break;
                 default:
                     cost.innerHTML = "unknown";
@@ -148,11 +148,7 @@ function Update()
         }
     });
 
-    let prefix = Math.floor(Math.log10(player.emeralds))
-    let prefix_id = Math.floor(prefix / 3);
-    if (prefix_id + 1 > prefixes.length) prefix_id = prefixes.length - 1;
-    emeraldstext.innerHTML = (player.emeralds / Math.pow(10, prefix)).toFixed(1) + " " + prefixes[prefix_id];
-
+    emeraldstext.innerHTML = GetWithPrefix(player.emeralds);
 
     let flag = true;
     cubes.forEach(cube => {
@@ -331,4 +327,14 @@ function download(filename, text) {
     element.click();
   
     document.body.removeChild(element);
+}
+
+function GetWithPrefix(value)
+{
+    let prefix = Math.floor(Math.log10(value))
+    let prefix_id = Math.floor(prefix / 3);
+    if (prefix_id + 1 > prefixes.length) prefix_id = prefixes.length - 1;
+
+    let str = (value / Math.pow(10, prefix_id*3)).toFixed(1) + " " + prefixes[prefix_id];
+    return str;
 }

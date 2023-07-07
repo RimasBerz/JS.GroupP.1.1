@@ -25,7 +25,7 @@ class Cube
         this.full_strength = block.strength * multiplier;
         this.strength = this.full_strength;
 
-        this.cube.getElementsByClassName("front")[0].getElementsByClassName("break")[0].innerHTML = this.strength;
+        this.cube.getElementsByClassName("front")[0].getElementsByClassName("break")[0].innerHTML = GetWithPrefix(this.strength);
         for (const child of this.cube.children) 
         {
             switch (child.className)
@@ -59,7 +59,7 @@ class Cube
         this.strength -= damage;
         let state = Math.round((1 - this.strength / this.full_strength) * (destroy_images.length + 1))-1;
         
-        this.cube.getElementsByClassName("front")[0].getElementsByClassName("break")[0].innerHTML = this.strength;
+        this.cube.getElementsByClassName("front")[0].getElementsByClassName("break")[0].innerHTML = GetWithPrefix(this.strength);
 
         if(this.strength <= 0) 
         {
