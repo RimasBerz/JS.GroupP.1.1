@@ -154,6 +154,39 @@ SaveProgressButton.onclick = () => {
 close.onclick = () => {
     VisibleMenu();
 }
+exportButton.onclick = () => {
+    if (player == null) return;
+
+    let wall = [];
+    cubes.forEach(cube => {
+        wall.push(cube.block_id);
+    });
+    let data = {
+        "player" : player,
+        "wall" : wall
+    };
+
+    download("data.json", JSON.stringify(data));
+}
+importButton.addEventListener('change', (event) => 
+{
+    const file = event.target.files[0];
+    let reader = new FileReader();
+
+    reader.readAsText(file);
+
+    reader.onload = function() {
+        let data = JSON.parse(reader.result);
+        console.log(data);
+
+        player = ParsePlayer(data["player"]);
+        Auto(); Auto();
+        
+        if (data["wall"].length > 1) Start(data["wall"]);
+        else Start();
+    };
+});
+
 
 
 function Start(wall = [])
@@ -173,6 +206,7 @@ function Start(wall = [])
     // Save Progress Button
     SaveProgressButton.removeAttribute("disabled");
     SaveProgressButton.style.display = "block";
+    exportButton.style.display = "block";
 
     // Continue Game Button
     continueButton.disabled = true;

@@ -148,9 +148,10 @@ function Update()
         }
     });
 
-    let prefix_id = Math.floor(player.emeralds / 1000);
+    let prefix = Math.floor(Math.log10(player.emeralds))
+    let prefix_id = Math.floor(prefix / 3);
     if (prefix_id + 1 > prefixes.length) prefix_id = prefixes.length - 1;
-    emeraldstext.innerHTML = player.emeralds + prefixes[prefix_id];
+    emeraldstext.innerHTML = (player.emeralds / Math.pow(10, prefix)).toFixed(1) + " " + prefixes[prefix_id];
 
 
     let flag = true;
@@ -318,4 +319,16 @@ function SaveGame()
     localStorage.setItem("wall", JSON.stringify(wall));
 }
 
-    
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+}

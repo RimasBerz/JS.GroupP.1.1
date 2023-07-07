@@ -12,6 +12,9 @@ const close = document.getElementById("close");
 const audio = new Audio("sounds/audiosaundtreck1.mp3");
 audio.volume = 0.3;
 
+const importButton = document.getElementById("import");
+const exportButton = document.getElementById("export");
+exportButton.style.display = "none";
 
 /*
 myButton.addEventListener("click", function () {
